@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Speech to Text</title>
+    <style>
+        /* Header Styles */
+        header {
+            background-color: #eef1f5; /* Change to your desired background color */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #007bff; /* Change to your desired background color */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Speech to Text</h1>
+    </header>
+    
+    <!-- Main Content Section -->
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="audio_file" accept=".mp3">
+            <button type="submit">Convert</button>
+        </form>
+        {% if text %}
+            <h2>Converted Text:</h2>
+            <p>{{ text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

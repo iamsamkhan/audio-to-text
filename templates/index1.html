@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Speech to Text</title>
+    <style>
+        /* Header Styles (unchanged) */
+        header {
+            background-color: #e8eaec; /* Change to your desired background color */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Output Column Styles */
+        .output-column {
+            width: 80%; /* Adjust as needed */
+            padding: 20px;
+            background-color: #f9f9f9; /* Change to your desired background color */
+        }
+
+        /* Scrollable Text Output */
+        .text-output {
+            max-height: 300px; /* Set a maximum height for the scrollable area */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 10px;
+        }
+
+
+        /* Two-Column Layout */
+        .container {
+        display: flex;
+        justify-content: space-between;
+        width: 80%; /* Increase the width as desired */
+        margin: 0 auto; /* Center the container horizontally */
+        }
+
+        .upload-column {
+            width: 80%; /* Adjust as needed */
+            padding: 20px;
+            background-color: #f0f0f0; /* Change to your desired background color */
+        }
+
+        .output-column {
+            width: 80%; /* Adjust as needed */
+            padding: 20px;
+            background-color: #f9f9f9; /* Change to your desired background color */
+        }
+
+        /* Form Styles */
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Output Styles (unchanged) */
+        h2 {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section (unchanged) -->
+    <header>
+        <h1>Speech to Text</h1>
+    </header>
+    
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Upload Column -->
+        <div class="upload-column">
+            <h2>Upload Video</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="audio_file" accept=".mp3">
+                <button type="submit">Convert</button>
+            </form>
+        </div>
+
+        
+        <!-- Output Column -->
+        <div class="output-column">
+            <h2>Converted Text:</h2>
+            <div class="text-output">
+                <p>{{ text }}</p>
+            </div>
+        </div>
+    </div>
+<!-- Output Column -->
+
+</body>
+</html>
